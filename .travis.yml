@@ -8,3 +8,15 @@ before_install:
 
 script:
   - docker run -e CI=true hertzbit/docker-frontend-app npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-south-1"
+  app: "docker-frontend-app"
+  env: "Dockerfrontendapp-env"
+  bucket_name: "elasticbeanstalk-ap-south-1-504989612761"
+  bucket_path: "docker-frontend-app"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: "$AWS_SECRET_KEY"
