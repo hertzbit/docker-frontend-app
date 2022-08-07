@@ -7,4 +7,4 @@ before_install:
   - docker build -t hertzbit/docker-frontend-app -f Dockerfile.dev .
 
 script:
-  - docker run -e CI=true hertzbit/docker-frontend-app npm run test -- -- coverage
+  - docker run -e CI=true hertzbit/docker-frontend-app npm run test
